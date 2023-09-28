@@ -14,7 +14,6 @@ const Login = ({ props }) => {
             ...loginData,
             [name]: value,
         });
-        // console.log(loginData);
     }
 
     const handleSubmit = (e) => {
@@ -23,9 +22,6 @@ const Login = ({ props }) => {
         localStorage.setItem('token', tokenn);
         console.log(tokenn)
         navigate("/");
-
-        // Handle form submission here
-        // console.log(loginData);
     }
 
     return (
