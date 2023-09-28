@@ -1,13 +1,16 @@
 import './App.css';
-import Table from './Components/Table';
+import StudentTable from './Components/StudentTable';
 import Navbar from './Components/Navbar';
 import Charts from './Components/Charts';
+import MainPage from './Components/MainPage';
 function App() {
   return (
     <div >
-      <Navbar/>
-      <Table/>
-      <Charts/>
+      <Navbar />
+      <div className='p-2'>
+        <MainPage></MainPage>
+      </div>
+
     </div>
   );
 }
