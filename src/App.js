@@ -1,16 +1,21 @@
 import './App.css';
-import StudentTable from './Components/StudentTable';
 import Navbar from './Components/Navbar';
-import Charts from './Components/Charts';
 import MainPage from './Components/MainPage';
+import Login from './Components/Login';
+import StudentForm from './Components/StudentForm';
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 function App() {
   return (
     <div >
-      <Navbar />
-      <div className='p-2'>
-        <MainPage></MainPage>
-      </div>
-
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path='/studentform' element={<StudentForm />} />
+          <Route path='/' element={<MainPage />}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

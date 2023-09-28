@@ -71,11 +71,11 @@ function Charts() {
     },
     {
       x: "Kachchh",
-      y : 0
+      y: 0
     },
     {
-      x : "Vadodara",
-      y : 0
+      x: "Vadodara",
+      y: 0
     }
   ]
 
@@ -87,7 +87,7 @@ function Charts() {
   })
 
   return (
-    <div className='w-full h-[100vh] py-4 space-y-4' id='charts'>
+    <div className='w-full h-[100vh] py-4 space-y-4' id='charts p-2'>
       <div className='flex items-center justify-between space-x-2'>
         <div className='w-fit h-fit rounded-lg p-2 shadow-sm'>
           <h1 className='text-xl font-bold'>Gender Based Visualization </h1>

@@ -9,7 +9,7 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import StudentTableRow from './StudentTableRow'
 import { exportToExcel } from 'react-json-to-excel'
-import {  useState } from 'react';
+import { useState } from 'react';
 import { Button, InputLabel, Select, FormControl, MenuItem } from '@mui/material';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import { mockData } from './mockData';
@@ -40,34 +40,34 @@ const columns = [
         minWidth: 80,
     },
     {
-      id : 'class',
-      label: 'Class',
-      minWidth: 80
+        id: 'class',
+        label: 'Class',
+        minWidth: 80
     }
 ];
 
 
 
-function applyfilter(data,district,gender,ageGroup,standard) {
+function applyfilter(data, district, gender, ageGroup, standard) {
     let filteredData = data;
-    if(district !== "any") {
+    if (district !== "any") {
         filteredData = filteredData.filter((data) => data.District === district)
     }
 
-    if(gender !== "any") {
+    if (gender !== "any") {
         filteredData = filteredData.filter((data) => data.Gender === gender);
     }
 
-    if(ageGroup !== "any") {
+    if (ageGroup !== "any") {
         let ages = ageGroup.split("-");
         let stAge = (Number)(ages[0]);
         let endAge = (Number)(ages[1]);
         filteredData = filteredData.filter((data) => (data.Age >= stAge && data.Age <= endAge));
     }
 
-    if(standard !== "any") {
+    if (standard !== "any") {
         filteredData = filteredData.filter((data) => {
-           return (data.Class === standard)
+            return (data.Class === standard)
         });
     }
     return filteredData;
@@ -77,14 +77,14 @@ export default function StudentTable() {
     const [district, setDistrict] = useState("any");
     const [gender, setGender] = useState("any");
     const [ageGroup, setAgeGroup] = useState("any");
-    const [standard,setStandard] = useState("any");
-    let filteredData = applyfilter(mockData.students,district,gender,ageGroup,standard);
-    
+    const [standard, setStandard] = useState("any");
+    let filteredData = applyfilter(mockData.students, district, gender, ageGroup, standard);
+
     const handleDownloadButtonClick = () => {
         exportToExcel(filteredData, 'Students');
     }
     return (
-        <div className='z-[-170]' id = "table">
+        <div className='z-[-170]' id="table">
             <div className='md:p-2 space-y-2 md:space-y-0 flex md:flex-row flex-col md:items-center md:justify-between  shadow-md bg-white mt-4 rounded-lg'>
                 <div className='space-x-4 flex md:flex-row flex-col md:space-y-0 space-y-4'>
                     <FormControl className='w-[150px]'>
@@ -162,7 +162,7 @@ export default function StudentTable() {
                 </Button>
             </div>
             <Paper className='mt-5' sx={{ width: '100%', overflow: 'hidden' }}>
-                <TableContainer sx={{minHeight: 550, maxHeight: 550 }}>
+                <TableContainer sx={{ minHeight: 550, maxHeight: 550 }}>
                     <Table stickyHeader>
                         <TableHead>
                             <TableRow>
