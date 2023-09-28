@@ -23,7 +23,7 @@ function Navbar() {
             </div>
             </Link>
             <div className='space-x-4'>
-                {login.isLogin === true ? <div>
+                {login.isLogin === true ? <div className='space-x-2'>
                     <Button variant='contained'>
                         <Link to={'/studentform'}>Fill Form</Link>
                     </Button>
