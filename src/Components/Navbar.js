@@ -1,21 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { Button } from '@mui/material'
 import { Link, useNavigate } from 'react-router-dom'
+import { useContext } from 'react';
+import AuthContext from './AuthContextProvider';
 function Navbar() {
-    const [isLogin, setIsLogin] = useState("false")
+    let login = useContext(AuthContext);
     let navigate = useNavigate();
 
-    useEffect(() => {
-        if (localStorage.getItem('token') === "true") {
-            setIsLogin("true")
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
 
     const handleClick = () => {
         localStorage.clear();
         navigate('/login');
-        setIsLogin("false");
+        login.setIsLogin("false");
     }
 
 
@@ -27,16 +23,16 @@ function Navbar() {
             </div>
             </Link>
             <div className='space-x-4'>
-                {isLogin === "true" ? <div>
-                    <Button>
+                {login.isLogin === true ? <div>
+                    <Button variant='contained'>
                         <Link to={'/studentform'}>Fill Form</Link>
                     </Button>
-                    <Button onClick={handleClick}>
+                    <Button variant = 'contained' onClick={handleClick}>
                         Logout
                     </Button>
                 </div> :
-                    <Button>
-                        <Link to={'/login'}>Login</Link>
+                    <Button variant='contained'>
+                        <Link to={'/login'}>Login As Admin</Link>
                     </Button>}
             </div>
         </nav >

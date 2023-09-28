@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import { useContext } from 'react';
+import AuthContext from './AuthContextProvider';
 const Login = ({ props }) => {
     const [loginData, setLoginData] = useState({
         email: "",
         password: "",
     });
     let navigate = useNavigate();
-
+    let login = useContext(AuthContext);
     const handleChange = (e) => {
         const { name, value } = e.target;
         setLoginData({
@@ -20,7 +21,7 @@ const Login = ({ props }) => {
         e.preventDefault();
         const tokenn = "true";
         localStorage.setItem('token', tokenn);
-        console.log(tokenn)
+        login.setIsLogin(true);
         navigate("/");
     }
 
